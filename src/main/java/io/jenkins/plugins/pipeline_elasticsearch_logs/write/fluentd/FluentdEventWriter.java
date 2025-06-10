@@ -95,7 +95,7 @@ public class FluentdEventWriter implements EventWriter {
     }
 
     private void emitData(String tag, Map<String, Object> data) throws IOException {
-        LOGGER.log(Level.FINEST, "Emitting log event: {0}", new Object[] { data });
+        LOGGER.log(Level.WARNING, "Emitting log event: {0}", new Object[] { data }); //TODO: debug only
 
         boolean isThreadInterrupted = false;
         try {
