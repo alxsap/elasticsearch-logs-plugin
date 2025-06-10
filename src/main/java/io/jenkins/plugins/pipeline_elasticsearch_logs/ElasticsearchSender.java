@@ -167,9 +167,9 @@ public class ElasticsearchSender implements BuildListener, Closeable {
             ConsoleNotes.parse(b, len, data, config.isSaveAnnotations());
 
             for (Map<String, Object> chunk: split(data)) {
-                if (LOGGER.isLoggable(Level.FINEST)) {
+                if (LOGGER.isLoggable(Level.WARNING)) { //TODO debug only
                     String jsonDataString = JSONObject.fromObject(chunk).toString();
-                    LOGGER.log(Level.FINEST, "Sending data: {0}", jsonDataString);
+                    LOGGER.log(Level.WARNING, "Sending data: {0}", jsonDataString); //TODO debug only
                 }
                 getEventWriter().push(chunk);
             }
